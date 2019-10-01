@@ -9,6 +9,7 @@ use App\Post;
 use App\Role;
 use App\Country;
 use App\Video;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -85,6 +86,23 @@ class HomeController extends Controller
         
         //$video = Video::find(2);
         //return $video->comments;
+    }
+
+    public function polymorphicOneToMany()
+    {
+        $post = Post::find(3);
+        return $post->tags;
+
+        //$video = Video::find(2);
+        //return $video->tags;
+        //return $video->tags[0]->pivot;
+        
+        // $tag = Tag::find(1);
+        // return $tag->posts;
+        
+
+        //$post = Post::find(3);
+        //return $post->tags()->attach([1, 2]); //Digo que me agregue a etiqueta de php e laravel
     }
 }
 

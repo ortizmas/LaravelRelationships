@@ -50,4 +50,7 @@ Route::get('/has-many-through', 'HomeController@hasManyThrough')->name('relation
 //Relação polimorfica uno a uno
 Route::get('/polymorphic-one-to-one', 'HomeController@polymorphicOneToOne')->name('polymorphic.onetoone');
 
+//Relação polimorfica uno a muchos
+Route::get('/polymorphic-one-to-many', 'HomeController@polymorphicOneToMany')->name('polymorphic.onetomany');
+
 

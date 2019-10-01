@@ -22,6 +22,12 @@ class Post extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    public function tags()
+    {
+        //El segunto parametro leva o nome definido da function no modelo comment
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
     /*public function comments()
     {
         return $this->hasMany('App\Comment');

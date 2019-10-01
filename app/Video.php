@@ -15,4 +15,10 @@ class Video extends Model
         //El segunto parametro leva o nome definido da function no modelo comment
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function tags()
+    {
+        //El segunto parametro leva o nome definido da function no modelo comment
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }
