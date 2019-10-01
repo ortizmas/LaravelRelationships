@@ -21,6 +21,7 @@
                                 <th>Titulo</th>
                                 <th>Conteudo</th>
                                 <th>Autor</th>
+                                <th>User</th>
 
                             </tr>
                         </thead>
@@ -31,6 +32,8 @@
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->content }}</td>
                                     <td>{{ $post->author->name }}</td>
+                                    <td>{{ $post->user->name }}</td>
+
 
                                 </tr>
                             @endforeach

@@ -90,7 +90,7 @@ class HomeController extends Controller
 
     public function polymorphicOneToMany()
     {
-        $post = Post::find(3);
+        $post = Post::find(1);
         return $post->tags;
 
         //$video = Video::find(2);

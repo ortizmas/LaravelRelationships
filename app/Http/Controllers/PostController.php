@@ -14,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::get();
+        //$posts = Post::get(); //Devolve 38 consultas 
+        
+        //Usando Eager Loading & Lazy Eager Loading
+        $posts = Post::with(['user', 'author'])->get(); //Return 4 consultas
 
         return view('posts.index', compact('posts'));
     }
