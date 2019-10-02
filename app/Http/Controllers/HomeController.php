@@ -104,6 +104,13 @@ class HomeController extends Controller
         //$post = Post::find(3);
         //return $post->tags()->attach([1, 2]); //Digo que me agregue a etiqueta de php e laravel
     }
+
+    public function getScope()
+    {
+        $postByAutor = Post::ByAuthorId(9)->get();
+        //dd($postByAutor);
+        return view('scope', compact('postByAutor'));
+    }
 }
 
 

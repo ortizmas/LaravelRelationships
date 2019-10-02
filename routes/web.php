@@ -53,4 +53,8 @@ Route::get('/polymorphic-one-to-one', 'HomeController@polymorphicOneToOne')->nam
 //Relação polimorfica uno a muchos
 Route::get('/polymorphic-one-to-many', 'HomeController@polymorphicOneToMany')->name('polymorphic.onetomany');
 
+/*Scopos*/
+Route::get('/get-scope', 'HomeController@getScope')->name('scope.getscope');
+
+
 

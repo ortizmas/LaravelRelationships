@@ -10,6 +10,16 @@ class Post extends Model
 		'title','content','author_id'
 	];
 
+    public function getTitleAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function getContentAttribute($value)
+    {
+        return str_limit($value, 50);
+    }
+
     public function user()
     {
         //Um post solo pode pertenecer a um usuario
@@ -36,5 +46,10 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo('App\Author');
+    }
+
+    public function scopeByAuthorId($query, $authorId)
+    {
+        return $query->with(['user', 'author'])->where('author_id', $authorId);
     }
 }
