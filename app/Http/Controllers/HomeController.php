@@ -45,25 +45,40 @@ class HomeController extends Controller
 
     public function oneToMany()
     {
+        $posts = User::find(1)->posts;
+        $posts = User::find(1)->posts()->where('title', 'CORPORIS NIHIL EAQUE QUI.')->first();
+        $posts = User::where('name', 'Chesley White')->first()->posts()->where('title', 'CORPORIS NIHIL EAQUE QUI.')->first();;
+
+        //return $posts;
+
         //$users = User::findOrFail(1);
         //return $users->posts;
 
-        $posts = Post::findOrFail(1);
+        $posts = Post::findOrFail(1)->user;
         //dd($posts->with('user')->get());
-        dd($posts->user);
+        return $posts;
     }
 
     public function manyToMany()
     {
-        $users = User::findOrFail(4);
-        $users->roles()->attach(2);//Asignar rol al usuario 1
+        //$users = User::findOrFail(1);
+        //$users->roles()->attach(1);//Asignar rol al usuario 1
         //$users->roles()->detach(1); //Excluir rol para o usuario 1
-        $users->roles()->sync(1);//Sync elimina todos los rols que ten um usuario, faz um detach, logo asigna el rol que le pasamos
-        return $users->roles;
+        //$users->roles()->sync(1);//Sync elimina todos los rols que ten um usuario, faz um detach, logo asigna el rol que le pasamos
+        //return $users->roles;
 
         //$roles = Role::findOrFail(1);
         //return $roles->users;
         //dd($posts->user);
+        
+        $user = User::find(1);
+
+        //return $user->roles;
+
+
+        foreach ($user->roles as $role) {
+            echo $role->pivot;
+        }
     }
 
     public function hasManyThrough()

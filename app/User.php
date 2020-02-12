@@ -30,7 +30,8 @@ class User extends Authenticatable
     public function address()
     {
         //Solo va tener uma direção
-        return $this->hasOne(Address::class);
+        //hasOne('Class: Address::class',  'foreanKey: user_id', 'localKey: id')
+        return $this->hasOne(Address::class, 'user_id', 'id');
     }
 
     public function posts()
@@ -41,8 +42,9 @@ class User extends Authenticatable
 
     public function roles()
     {
+        // return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
         //'Modelo a relacionar', 'nome_tablea_pivot', 'llave foranea del modelo que raliza la relacion', 'llave foranea del modelo a relacionar'.
         //'Role::class', 'asignar_rol', 'user_id', 'role_id'    
-        return $this->belongsToMany(Role::class); //convension laravel nao precisso os outros parametros
+        return $this->belongsToMany(Role::class)->withTimestamps(); //convension laravel nao precisso os outros parametros
     }
 }
